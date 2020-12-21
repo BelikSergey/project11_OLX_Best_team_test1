@@ -1,4 +1,5 @@
 import parsMyAdsList from '../templates/my-ads-section.hbs';
+import { loadKey } from './local-storage';
 // логин: test@test.com Пароль: Qwerty123
 // Элементы DOM-дерева
 const myAdsSectionEl = document.querySelector('#my-ads-section');
@@ -16,7 +17,7 @@ const keyPart = 'user';
 const key = localStorage.getItem('accessToken');
 const options = {
   headers: {
-    Authorization: `${key}`,
+    Authorization: `Bearer ${loadKey('refreshToken')}`,
   },
 };
 
